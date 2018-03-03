@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -12,6 +13,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// reducers
+import { checkedReducer } from './ngrx/checked';
+import { userReducer } from './ngrx/user';
 
 const routesConfig: Routes = [
   { path: '', component: HomePageComponent },
@@ -39,6 +43,7 @@ const routesConfig: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routesConfig),
+    StoreModule.forRoot({ user: userReducer, checked: checkedReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

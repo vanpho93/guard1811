@@ -10,9 +10,8 @@ import { UserService } from '../services/user.service';
 export class SignInComponent implements OnInit {
   constructor(private userService: UserService) {}
   token = '';
-  ngOnInit() {
-    
-  }
+  
+  ngOnInit() {}
 
   signIn() {
     this.userService.signIn('teo@gmail.com', '321')
