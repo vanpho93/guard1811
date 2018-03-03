@@ -9,15 +9,10 @@ import { UserService } from '../services/user.service';
 })
 export class SignInComponent implements OnInit {
   constructor(private userService: UserService) {}
-  token = '';
   
   ngOnInit() {}
 
   signIn() {
-    this.userService.signIn('teo@gmail.com', '321')
-    .then(response => {
-      this.token = response.user.token;
-      localStorage.setItem('token', this.token);
-    });
+    this.userService.signIn('teo@gmail.com', '321');
   }
 }

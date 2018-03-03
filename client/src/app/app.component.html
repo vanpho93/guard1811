@@ -9,7 +9,7 @@
       <a routerLink="/password" class="btn btn-success" routerLinkActive="active">Password</a>
       <a routerLink="/profile" class="btn btn-success" routerLinkActive="active">Profile</a>
       <a routerLink="/messages" class="btn btn-success" routerLinkActive="active">Messages</a>
-      <a class="btn btn-success" routerLinkActive="active">Log out</a>
+      <a class="btn btn-success" routerLinkActive="active" (click)="logOut();">Log out</a>
   </nav>
   <router-outlet></router-outlet>
 </div>

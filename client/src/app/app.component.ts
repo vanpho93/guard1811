@@ -22,4 +22,6 @@ export class AppComponent implements OnInit {
       this.store.dispatch({ type: 'CHECKED' });
     });
   }
+
+  logOut() { this.userService.logOut(); }
 }
