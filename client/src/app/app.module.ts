@@ -16,11 +16,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 // reducers
 import { checkedReducer } from './ngrx/checked';
 import { userReducer } from './ngrx/user';
+// guards
+import { MustLoggedInGuard } from './must-logged-in.guard';
 
 const routesConfig: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'messages', component: MessagesComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [MustLoggedInGuard] },
+  { path: 'messages', component: MessagesComponent, canActivate: [MustLoggedInGuard] },
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'password', component: ForgotPasswordComponent },
@@ -45,7 +47,7 @@ const routesConfig: Routes = [
     RouterModule.forRoot(routesConfig),
     StoreModule.forRoot({ user: userReducer, checked: checkedReducer })
   ],
-  providers: [],
+  providers: [MustLoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
