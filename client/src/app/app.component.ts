@@ -23,5 +23,7 @@ export class AppComponent implements OnInit {
     });
   }
 
+  get isSignedIn() { return !!localStorage.getItem('token'); }
+
   logOut() { this.userService.logOut(); }
 }

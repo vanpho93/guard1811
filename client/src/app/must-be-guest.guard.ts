@@ -7,7 +7,7 @@ export class MustBeGuestGuard implements CanActivate {
   constructor(private router: Router) {}
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
       const token = localStorage.getItem('token');
-      if (token) this.router.navigate(['/signin']); 
+      if (token) this.router.navigate(['/profile']); 
       return !token;
   }
 }

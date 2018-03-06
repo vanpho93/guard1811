@@ -36,7 +36,7 @@ export class UserService {
         .then(res => res.json())
         .catch(res => res.json())
         .then(response => {
-            if (!response.success) return;
+            if (!response.success) return localStorage.removeItem('token');
             const { token, email, name, phone } = response.user;
             localStorage.setItem('token', token);
             this.store.dispatch({ type: 'SET_USER', user: { email, name, phone } });
